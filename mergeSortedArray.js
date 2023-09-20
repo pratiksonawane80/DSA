@@ -36,3 +36,33 @@ var merge = function(nums1, m, nums2, n) {
     nums1.sort((a,b) => a-b)
     // console.log(nums1)
 };
+
+
+//Optimised
+
+let i = m - 1
+let j = n - 1
+let total = (m + n ) - 1
+
+while(i >= 0 && j >= 0) {
+  if(nums1[i] > nums2[j]) {
+      nums1[total] = nums1[i]
+      i--
+  }
+  else {
+      nums1[total] = nums2[j]
+      j--
+  }
+  total--
+}
+
+while(i >= 0) {
+    nums1[total] = nums1[i]
+    i--
+    total--
+}
+while( j >= 0) {
+    nums1[total] = nums2[j];
+    j--
+    total--
+}
